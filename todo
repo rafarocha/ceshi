@@ -1,0 +1,8 @@
+refactoring
+
+	-		Preserve Whole Object 				http://www.refactoring.com/catalog/preserveWholeObject.html
+	-		Replace Array with Object			http://www.refactoring.com/catalog/replaceArrayWithObject.html
+	DONE	Replace Type Code State/Strategy 	http://www.refactoring.com/catalog/replaceTypeCodeWithStateStrategy.html
+	DONE	Generic Infer Type					http://docs.oracle.com/javase/tutorial/java/generics/genTypeInference.html
+	
+

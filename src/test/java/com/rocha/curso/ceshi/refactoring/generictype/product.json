@@ -1,0 +1,7 @@
+{
+   "product":{
+      "name":"Banana",
+      "id":123,
+      "price":23.0
+   }
+}
