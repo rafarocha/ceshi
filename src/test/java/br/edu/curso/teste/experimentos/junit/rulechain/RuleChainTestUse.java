@@ -9,9 +9,6 @@ import org.junit.rules.TestRule;
 
 import br.edu.curso.teste.experimentos.junit.rulesclass.ActionRule;
 
-/**
- * mais em 
- */
 public class RuleChainTestUse {
 	
 	@Rule
