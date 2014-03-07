@@ -1,4 +1,4 @@
-package br.edu.curso.teste.experimentos.junit.classrules;
+package br.edu.curso.teste.experimentos.junit.rulesclass;
 
 import org.junit.rules.TestRule;
 import org.junit.runner.Description;

@@ -1,4 +1,4 @@
-package br.edu.curso.teste.experimentos.junit.classrules;
+package br.edu.curso.teste.experimentos.junit.rulechain;
 
 import static org.junit.Assert.assertTrue;
 
@@ -6,6 +6,8 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.RuleChain;
 import org.junit.rules.TestRule;
+
+import br.edu.curso.teste.experimentos.junit.rulesclass.ActionRule;
 
 /**
  * mais em 

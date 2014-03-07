@@ -1,4 +1,4 @@
-package br.edu.curso.teste.experimentos.junit.classrules;
+package br.edu.curso.teste.experimentos.junit.rulesclass;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assume.assumeThat;
