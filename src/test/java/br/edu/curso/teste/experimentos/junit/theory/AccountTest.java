@@ -25,24 +25,31 @@ public class AccountTest {
 	@DataPoint
 	public static Account account5 = new Account(new BigDecimal("100"));
 	
+	private static int count = 0;
+	
 	@Theory
-	public void testTransferringMoney(Account johnDoe, Account janeDoe, Account  opa) {
+	public void testTransferringMoney(Account johnDoe, Account janeDoe) {
 		BigDecimal big = new BigDecimal(50);
 		
-		assumeThat(johnDoe.getBalance(),
-				Matchers.greaterThanOrEqualTo(big));
+		// descobrir bug da mesma instância
+		System.out.println( "\t\t" + johnDoe.getBalance() );
+		assumeThat(johnDoe.getBalance(), Matchers.greaterThanOrEqualTo(big));
 		
-		BigDecimal balanceBefore = janeDoe.getBalance();
+		printf("#testcase"+  ++count, johnDoe, janeDoe);
 		assertTrue(johnDoe.transfer(big, janeDoe));
-		System.out.println( balanceBefore + " \t "+ janeDoe.getBalance() );
-		
-		System.out.println( opa );
-	}
+		printf("\t", johnDoe, janeDoe);
+	}	
 
 	@Theory
 	public void testWithdraw(Account account) {
 		BigDecimal big = new BigDecimal(50);
 		assumeThat(account.getBalance(), Matchers.greaterThan(big));
 		assertTrue(account.withdraw(big));	
-	}	
+	}
+	
+	private void printf(String action, Account johnDoe, Account janeDoe) {
+		System.out.printf(action + "  \t(john, jane) : (%s, %s)\n", 
+				johnDoe.getBalance(), janeDoe.getBalance());
+	}
+	
 }
