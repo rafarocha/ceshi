@@ -46,5 +46,5 @@ public class Opcao {
 				.anel( this.anel )
 				.codigo( this.codigo );
 	}
-
+	
 }
