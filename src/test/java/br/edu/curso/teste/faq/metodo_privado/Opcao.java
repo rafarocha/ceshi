@@ -36,5 +36,15 @@ public class Opcao {
 		if ( codigo() == 0 || codigo() > 100 )
 			throw new IllegalStateException("Não pode ser zero ou maior que 100");
 	}
+	
+	@SuppressWarnings("static-access")
+	public OpcaoBuilder but() {
+		return Opcao.this.builder()
+				.porta( this.porta )
+				.janela( this.janela )
+				.chave( this.chave )
+				.anel( this.anel )
+				.codigo( this.codigo );
+	}
 
 }
