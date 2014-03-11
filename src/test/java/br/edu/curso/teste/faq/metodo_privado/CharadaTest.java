@@ -1,9 +1,10 @@
 package br.edu.curso.teste.faq.metodo_privado;
 
-
 public class CharadaTest {
 	
-	// Opcao opcao = Opcao.builder().porta(0).janela(0).chave(0).anel(0).codigo(0).build();
+	private Opcao getOpcao() {
+		return Opcao.builder().porta(0).janela(0).chave(0).anel(0).codigo(0).build();		
+	}
 	
 	static class Charada {
 		public static Resposta palpite(Opcao opcao) {
