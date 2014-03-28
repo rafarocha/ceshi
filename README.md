@@ -1,9 +1,11 @@
-ceshi
+###ceshi
+
 Projeto de trabalho para curso de testes de unidade e integração
 
-...
-Formatações de código para slides
-# highlight http://www.andre-simon.de/doku/highlight/en/highlight.php
+
+Formatações de código para slides usando highlight
+http://www.andre-simon.de/doku/highlight/en/highlight.php
+
 ...
 
 Comandos usados para geração do codigo nos slides com projeto Highlight
