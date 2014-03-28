@@ -1,10 +1,8 @@
 package br.edu.curso.refactoring.exemplo.generictype;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.StringWriter;
 
-import org.apache.commons.io.IOUtils;
+import br.edu.curso.util.Util;
 
 public class People {
 	
@@ -24,22 +22,10 @@ public class People {
 		}
 	}
 	
-	static class Util {
-		public static String getFile(String name) throws IOException {
-			InputStream is = TransformerTest.class.getResourceAsStream(name);
-			StringWriter writer = new StringWriter();
-			IOUtils.copy(is, writer);
-			return writer.toString();
-		}
-		public static String getName(Class<?> klazz) {
-			return klazz.getSimpleName().toLowerCase(); 
-		}
-	}
-	
 	enum JSON {
 		product, people, order;
 		public String extract() throws IOException {
-			return Util.getFile( this.toString().concat(".json") );
+			return Util.carregarArquivo( People.class, this.toString().concat(".json") );
 		}
 		
 	}

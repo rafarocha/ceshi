@@ -1,0 +1,8 @@
+@Test public void verificandoInteracoes() {
+	List<String> listaMock = mock( List.class );
+	listaMock.add( "one" );
+	listaMock.clear();
+	
+	verify( listaMock ).add( "one" );
+	verify( listaMock ).clear();
+}

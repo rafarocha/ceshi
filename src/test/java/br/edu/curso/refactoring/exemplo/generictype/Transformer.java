@@ -1,7 +1,7 @@
 package br.edu.curso.refactoring.exemplo.generictype;
 
 import br.edu.curso.refactoring.exemplo.generictype.People.Product;
-import br.edu.curso.refactoring.exemplo.generictype.People.Util;
+import br.edu.curso.util.Util;
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.json.JettisonMappedXmlDriver;

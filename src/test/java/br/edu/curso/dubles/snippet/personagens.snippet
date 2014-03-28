@@ -1,0 +1,11 @@
+@Mock private BoletoService mock;
+@Spy  private EmailSender spy;
+@Test public void test() {
+	quando( mock.emitir( any() ) ).retornar( boleto );
+	quando( spy.enviar( new Answer(
+		public Objeto answer(Invocation in) {
+			Boleto boleto = in.getArgumento();
+		})); 
+	loja.compra( carrinho );
+	// verifica se mock e spy foram chamados 
+}

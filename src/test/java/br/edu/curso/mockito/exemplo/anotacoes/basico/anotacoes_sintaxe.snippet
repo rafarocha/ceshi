@@ -1,0 +1,11 @@
+@Mock private Servico servico;
+@InjectMocks private Controlador controlador;
+
+@Test public void concluirSucesso() {
+	controlador.concluir( objeto );
+	verify( serviceMock ).salvar( objeto );
+}
+
+class Controlador {
+	private Servico servico;
+}

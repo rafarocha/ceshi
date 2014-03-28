@@ -1,0 +1,10 @@
+@Test public void levarAstroVeterinario() {
+	// mock stubbing's 
+	rosie.levarAstro( veterinario ); // real
+	verify( astroMock ).colocar( coleira );
+}
+public void levarAstro(Local local, Nave nave) {
+	astro.colocar( coleira, rosie );
+	Taxista taxista = telelista.getTaxi();
+	this.pedir( taxista, local );
+}

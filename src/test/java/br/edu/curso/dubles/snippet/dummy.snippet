@@ -1,0 +1,10 @@
+@Test public void reservar() {
+	Bilhete bi = agencia.reservar( cliente, agenda, null );
+}
+
+class Agencia {
+	public Bilhete reservar(Cliente i, Agenda a, Cumpom c)  {
+		double desconto = descontoService.calcular( c ); 
+		return new Bilhete(i, a, desconto);
+	}
+}
