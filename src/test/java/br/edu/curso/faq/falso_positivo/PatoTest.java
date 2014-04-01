@@ -2,6 +2,9 @@ package br.edu.curso.faq.falso_positivo;
 
 import org.junit.Test;
 
+/**
+ * crie um novo caso em que o pato possui apenas a pata esquerda
+ */
 public class PatoTest {
 	
 	@Test public void andarSemPatas() {

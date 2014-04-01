@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"
+	version="1.0">
+
+	<persistence-unit name="PUBLIC" transaction-type="RESOURCE_LOCAL">
+
+		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+		<class>br.edu.curso.sample.model.Usuario</class>
+
+		<properties>
+			<!-- http://wiki.eclipse.org/EclipseLink/Features/JPA#EntityManagerFactory_Properties -->
+
+			<!-- JDBC Connection Pooling -->
+			<property name="eclipselink.jdbc.driver" value="org.h2.Driver" />
+			<property name="eclipselink.jdbc.url" value="jdbc:h2:~/Documents/workspace/curso/ceshi/target/h2" />
+			<property name="eclipselink.jdbc.user" value="sa" />
+			<property name="eclipselink.jdbc.password" value="" />
+
+			<!-- Logging -->
+			<!-- http://wiki.eclipse.org/EclipseLink/Examples/JPA/Logging -->
+			<property name="eclipselink.logging.file" value="ceshi-sql.log" />
+			<property name="eclipselink.logging.level" value="FINE" />
+			<property name="eclipselink.logging.session" value="false" />
+			<property name="eclipselink.logging.exceptions" value="true" />
+			<property name="showSql" value="true" />
+		</properties>
+
+	</persistence-unit>
+	
+</persistence>
