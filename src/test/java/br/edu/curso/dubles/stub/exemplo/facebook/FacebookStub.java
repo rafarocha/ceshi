@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
+import br.edu.curso.dubles.snippet.Properties;
 import facebook4j.Account;
 import facebook4j.Achievement;
 import facebook4j.Activity;
@@ -128,7 +129,6 @@ public class FacebookStub implements Facebook {
 
 	public void setOAuthAppId(String appId, String appSecret) {
 		// TODO Auto-generated method stub
-		
 	}
 
 	public void setOAuthPermissions(String permissions) {
@@ -2753,12 +2753,12 @@ public class FacebookStub implements Facebook {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
 	public ResponseList<User> searchUsers(String query) throws FacebookException {
 		ResponseList<User> pessoas = mock( ResponseList.class );
 		User megan = apenasMeganFox();
 		pessoas.add( megan );
-		when( pessoas.get(FacebookBroker.FIRST) ).thenReturn( megan );
+		when( pessoas.get(Properties.FIRST_ELEMENT) ).thenReturn( megan );
 		return pessoas;
 	}
 	

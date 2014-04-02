@@ -61,9 +61,7 @@ public class AssertThatTest {
 	
 	/*
 	 * vamos escrever mais alguns testes, sugetões:
-	 * - bingo, dado, par ou impar : envolvendo probabilidade
-	 * - algarismo romano
-	 * -  
+	 * - bingo, dado, par ou impar, algarismo romano, etc.
 	 */
 
 }
