@@ -39,8 +39,14 @@
 	                <!-- pendente configuracao -->
 					<executions>
 						<execution>
-							<id></id>
-						</execution>
+                            <id>flyway-migrate</id>
+                            <goals>
+                                <goal>clean</goal>
+                                <goal>migrate</goal>
+                                <goal>status</goal>
+                            </goals>
+                            <phase>clean, install</phase>
+                        </execution>
 					</executions>
 	                <dependencies>
 	                    <dependency>
