@@ -4,14 +4,80 @@
 
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>br.gov.dataprev.cnis.infra.cache</groupId>
-	<artifactId>ct</artifactId>
+	<groupId>br.edu.curso</groupId>
+	<artifactId>ceshi</artifactId>
 	<version>0.1-SNAPSHOT</version>
 	<name>ct</name>
-	<description>CNISElasticCache</description>
+	<description>Ceshi significa a palavra 'teste' em mandarim</description>
+	
+	<build>
+    	<pluginManagement>
+	        <plugins>
+	        	<!-- compiler -->
+	            <plugin>
+	                <groupId>org.apache.maven.plugins</groupId>
+	                <artifactId>maven-compiler-plugin</artifactId>
+	                <configuration>
+	                    <source>1.6</source>
+	                    <target>1.6</target>
+	                </configuration>
+	            </plugin>
+	            <!-- flyway -->
+	            <plugin>
+	                <groupId>com.googlecode.flyway</groupId>
+	                <artifactId>flyway-maven-plugin</artifactId>
+	                <version>2.3</version>
+	                <configuration>
+	                    <url>jdbc:h2:file:target/h2</url>
+	                    <user>sa</user>
+	                    <validateOnMigrate>true</validateOnMigrate>
+	                    <locations>
+	                    	<location>db.migration</location>
+	                    	<location>br.edu.curso.flyway.migrations</location>
+	                    </locations>
+	                </configuration>
+	                <!-- pendente configuracao -->
+					<executions>
+						<execution>
+							<id></id>
+						</execution>
+					</executions>
+	                <dependencies>
+	                    <dependency>
+	                        <groupId>com.h2database</groupId>
+	                        <artifactId>h2</artifactId>
+	                        <version>1.3.170</version>
+	                    </dependency>
+	                </dependencies>
+	            </plugin>
+	        </plugins>
+        </pluginManagement>
+        
+        <!-- diretorios do projeto -->
+        <directory>target</directory>
+	    <outputDirectory>target/classes</outputDirectory>
+	    <testOutputDirectory>target/test-classes</testOutputDirectory>
+	    <sourceDirectory>src/main/java</sourceDirectory>
+	    <testSourceDirectory>src/test/java</testSourceDirectory>
+	    <resources>
+	      <resource>
+	        <directory>src/main/res</directory>
+	      </resource>
+	    </resources>
+	    <testResources>
+	      <testResource>
+	        <directory>src/test/res</directory>
+	      </testResource>
+	    </testResources>
+	    
+    </build>
+	
+	<properties>
+    	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  	</properties>
 
 	<dependencies>
-		
+
 		<!-- junit -->
 		<dependency>
 			<groupId>junit</groupId>
@@ -23,14 +89,14 @@
 			<artifactId>junit-addons</artifactId>
 			<version>1.4</version>
 		</dependency>
-		
+
 		<!-- tools -->
 		<dependency>
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
 			<version>11.0.2</version>
 		</dependency>
-		
+
 		<!-- commons -->
 		<dependency>
 			<groupId>commons-lang</groupId>
@@ -47,7 +113,7 @@
 			<artifactId>commons-io</artifactId>
 			<version>1.3.2</version>
 		</dependency>
-		
+
 		<!-- log -->
 		<dependency>
 			<groupId>log4j</groupId>
@@ -55,19 +121,27 @@
 			<version>1.2.17</version>
 		</dependency>
 		
-		<!-- easymock -->	
+		<!-- mockito -->
+		<dependency>
+		 	<groupId>org.mockito</groupId>
+  			<artifactId>mockito-all</artifactId>
+		  	<version>1.9.5</version>
+		  	<scope>test</scope>
+		</dependency>
+
+		<!-- easymock -->
 		<dependency>
 			<groupId>org.easymock</groupId>
 			<artifactId>easymock</artifactId>
 			<version>3.2</version>
 		</dependency>
-		
+
 		<!-- advanced tools -->
 		<dependency>
 			<groupId>com.natpryce</groupId>
 			<artifactId>make-it-easy</artifactId>
 			<version>3.1.0</version>
-		</dependency>		
+		</dependency>
 
 		<!-- JSF -->
 		<dependency>
@@ -111,20 +185,102 @@
 			<artifactId>jettison</artifactId>
 			<version>1.3.4</version>
 		</dependency>
-		
+
 		<!-- util advanced lombok: uso do padrão builder e weaving de atributos -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<version>1.12.2</version>
 		</dependency>
-		
+
 		<!-- API uso reflexão facilitado -->
 		<dependency>
 			<groupId>net.vidageek</groupId>
 			<artifactId>mirror</artifactId>
 			<version>1.6.1</version>
 		</dependency>
+		
+		<!-- JSR 303 Validation, Hibernate (provider) e slf4j (dependencias transitivas) -->
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>1.0.0.GA</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator-annotation-processor</artifactId>
+			<version>4.1.0.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>1.7.6</version>
+		</dependency>
+		
+		<!-- P E S Q U I S A -->
+		<!-- inicialmente coloquei para testar formatador SQL -->
+		<!-- ver classe Util -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>4.3.4.Final</version>
+		</dependency>
 
+		<!-- OWASP HTML  -->
+		<dependency>
+			<groupId>com.googlecode.owasp-java-html-sanitizer</groupId>
+			<artifactId>owasp-java-html-sanitizer</artifactId>
+			<version>[r163,)</version>
+		</dependency>
+
+		<!-- API Facebook e SimpleMail : Inicialmente usado em exemplo com stubs -->
+		<dependency>
+  			<groupId>org.facebook4j</groupId>
+  			<artifactId>facebook4j-core</artifactId>
+  			<version>2.0.5</version>
+		</dependency>
+		<dependency>
+    		<groupId>org.codemonkey.simplejavamail</groupId>
+    		<artifactId>simple-java-mail</artifactId>
+    		<version>2.1</version>
+		</dependency>
+		
+		<!-- flyway -->
+		<dependency>
+			<groupId>com.googlecode.flyway</groupId>
+			<artifactId>flyway-core</artifactId>
+			<version>2.3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>2.5.6.SEC03</version>
+		</dependency>
+		
+		<!-- dbunit -->
+		<dependency>
+			<groupId>org.dbunit</groupId>
+			<artifactId>dbunit</artifactId>
+			<version>2.4.8</version>
+		</dependency>		
+		
+		<!-- H2 local memory database -->
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>1.3.174</version>
+		</dependency>
+		
+		<!-- JPA Persistence API v2  -->
+		<dependency>
+			<groupId>javax.persistence</groupId>
+			<artifactId>persistence-api</artifactId>
+			<version>1.0.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.persistence</groupId>
+			<artifactId>eclipselink</artifactId>
+			<version>2.5.1</version> <!-- na dataprev, projetos MTE usam v1.0.1 -->
+		</dependency>		
 	</dependencies>
 </project>
