@@ -1,9 +1,11 @@
-ceshi
+###ceshi
+
 Projeto de trabalho para curso de testes de unidade e integração
 
-...
-Formatações de código para slides
-# highlight http://www.andre-simon.de/doku/highlight/en/highlight.php
+
+Formatações de código para slides usando highlight
+http://www.andre-simon.de/doku/highlight/en/highlight.php
+
 ...
 
 Comandos usados para geração do codigo nos slides com projeto Highlight
@@ -20,6 +22,7 @@ Comandos usados para geração do codigo nos slides com projeto Highlight
 		highlight -O rtf anotacoes_sintaxe.snippet --line-numbers --font-size 40 --font 'Designer Notes' --style anotherdark -W -J 60 -j 3 --src-lang java | pbcopy
 
 ...
+<<<<<<< HEAD
 flyway já está configurado via maven
 para testar execute o comando e pronto!
 ...
@@ -29,3 +32,5 @@ mvn compile flyway:migrate
 para ver a base, inicie o h2 e coloque a seguinte url abaixo:    
 jdbc:h2:~/<diretorio_raiz_projeto>/target/h2 (recomendado)
 jdbc:h2:~/Documents/workspace/curso/ceshi/target/h2 (exemplo minha maquina)
+=======
+>>>>>>> b4798e67d55cc0df0ffd75ede7a976a86d132fea
