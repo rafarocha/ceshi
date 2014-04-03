@@ -17,6 +17,6 @@ package br.edu.curso.junit.exemplo.asserts;
  */
 public class BaskaraTest {
 
-		
+	
 	
 }
