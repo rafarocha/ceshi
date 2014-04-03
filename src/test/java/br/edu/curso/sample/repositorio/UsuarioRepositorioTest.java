@@ -22,6 +22,7 @@ import org.dbunit.operation.DatabaseOperation;
 import org.hamcrest.Description;
 import org.hamcrest.TypeSafeDiagnosingMatcher;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import br.edu.curso.dbunit.helper.DBUnitHelper;
@@ -85,7 +86,7 @@ public class UsuarioRepositorioTest {
 	
 	private UsuarioRepositorio repositorio;
 	
-	@Test public void obterPorId() {		
+	@Test @Ignore public void obterPorId() {		
 		Usuario usuario = repositorio.obterPorId(4);
 		assertThat(usuario, is( michaelJackson() ));
 	}

@@ -1,6 +1,5 @@
 package br.edu.curso.junit.exercicio.carrinho_compras;
 
-
 public class TestaMaiorEMenor {
 
 	public static void main(String[] args) {

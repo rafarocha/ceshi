@@ -23,9 +23,10 @@ public class PatoTest {
 		public void andar() {
 			if ( esquerda == null || direita == null )
 				 throw new IllegalStateException();
+			System.out.println( "fazer o pato andar" );
 		}
 	}
 	
-	class Pata{}
+	class Pata {}
 
 }
