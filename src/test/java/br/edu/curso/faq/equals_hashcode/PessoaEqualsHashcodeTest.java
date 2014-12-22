@@ -86,7 +86,7 @@ public class PessoaEqualsHashcodeTest {
 	
 	@Test public void equalsConsistente() {
 		 for (int i = 0; i < NUM_ITERACOES; ++i) {
-			 before();
+			 before(); // necessario para resetar estados iniciais de { pa, pb, pc, pd }
 			 
 			 equalsContraOutrosObjetos();
 			 equalsNomeSobremomeNulo();

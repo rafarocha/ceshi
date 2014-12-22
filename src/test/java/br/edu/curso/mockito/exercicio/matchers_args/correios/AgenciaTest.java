@@ -1,12 +1,14 @@
 package br.edu.curso.mockito.exercicio.matchers_args.correios;
 
+import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import java.util.Date;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import br.edu.curso.mockito.exercicio.matchers_args.correios.Telegrama.Despachador;
@@ -33,8 +35,13 @@ public class AgenciaTest {
 	private static final String texto 
 			= "vamos aumentar o preço do barril de petróleo no 3rd trimestre";
 	
-	@Test @Ignore public void enviar() {
-		Telegrama telegrama = new Telegrama( texto, new Date() );
+	@Test public void enviar() {
+		Telegrama telegrama = new Telegrama( texto, new Date() );		
+		
+		when( funcionarioMock.preparar(
+				anyString(), any(Date.class), any(Envelope.class) )
+			).thenReturn( telegrama );
+				
 		agencia.enviar( texto, new Date(), null );
 		
 		verify( inspetorMock ).validar( telegrama );

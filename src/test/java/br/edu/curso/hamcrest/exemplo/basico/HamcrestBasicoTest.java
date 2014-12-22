@@ -20,7 +20,7 @@ public class HamcrestBasicoTest {
 	public void usingUsandoOutrosElementosEm() {
 		// aquela lista de funcionalidades
 		// outros tipos como data ..
-		// site da wiki do hamcrest.
+		// site da wiki do hamcrest
 	}
 	
 	// fazer exercicio usando codigo abaixo para checar se é NaN

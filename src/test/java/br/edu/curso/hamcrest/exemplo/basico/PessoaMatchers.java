@@ -12,15 +12,14 @@ import org.hamcrest.TypeSafeMatcher;
 import com.google.common.base.Objects;
 
 public class PessoaMatchers {
-
+	
 	// usando BaseMatcher
 	public static Matcher<Pessoa> hasIdade(final int idade) {
 		return new BaseMatcher<Pessoa>() {
 			public boolean matches(final Object obj) {
 				return idade == getIdade(obj);
 			}
-
-			public void describeTo(final Description desc) {
+			public void describeTo(Description desc) {
 				desc.appendText(" idade deveria retornar ").appendValue(idade);
 			}
 
@@ -34,6 +33,33 @@ public class PessoaMatchers {
 				return pessoa.getIdade();
 			}
 		};
+	}
+
+	public Matcher<Pessoa> hasIdade_Classe(int idade) {
+		return new MatcherIdade( idade );
+	}
+	
+	private class MatcherIdade extends BaseMatcher<Pessoa> {
+		private int idade;
+		private MatcherIdade(int idade) {
+			this.idade = idade;
+		}
+		
+		@Override
+		public boolean matches(Object item) {
+			Pessoa pessoa = (Pessoa) item;
+			return pessoa.getIdade() == idade;
+		}
+
+		@Override
+		public void describeTo(Description desc) {
+			desc.appendText(" idade deveria retornar ").appendValue(idade);
+		}
+		
+	}
+	
+	public static Matcher<Pessoa> hasNome_Classe(String nome) {
+		return new MatcherNomeExterno( nome );
 	}
 	
 	// usando TypeSafeMatcher

@@ -1,0 +1,48 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>ceshi-junit</artifactId>
+	<packaging>jar</packaging>
+	
+	<parent>
+		<groupId>br.edu.curso</groupId>
+		<artifactId>ceshi</artifactId>
+		<version>0.2-SNAPSHOT</version>
+		<relativePath>../../../ceshi/pom.xml</relativePath>
+	</parent>
+
+	<build>
+    	<pluginManagement>
+	        <plugins>
+	        	<!-- compiler -->
+	            <plugin>
+	                <groupId>org.apache.maven.plugins</groupId>
+	                <artifactId>maven-compiler-plugin</artifactId>
+	                <configuration>
+	                    <source>1.7</source>
+	                    <target>1.7</target>
+	                </configuration>
+	            </plugin>
+	        </plugins>
+        </pluginManagement>
+        
+        <!-- diretorios do projeto -->
+        <directory>target</directory>
+	    <outputDirectory>target/classes</outputDirectory>
+	    <testOutputDirectory>target/test-classes</testOutputDirectory>
+	    <sourceDirectory>src/main/java</sourceDirectory>
+	    <testSourceDirectory>src/test/java</testSourceDirectory>
+	    <resources>
+	      <resource>
+	        <directory>src/main/res</directory>
+	      </resource>
+	    </resources>
+	    <testResources>
+	      <testResource>
+	        <directory>src/test/res</directory>
+	      </testResource>
+	    </testResources>
+    </build>
+
+</project>

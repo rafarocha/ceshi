@@ -3,10 +3,13 @@ package br.edu.curso.mockito.exercicio.anotacoes.injecao_dependencia;
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.Matchers.any;
 
-import org.junit.Ignore;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.mockito.InOrder;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.runners.MockitoJUnitRunner;
 
 import br.edu.curso.mockito.exercicio.anotacoes.injecao_dependencia.Processo.Analista;
 import br.edu.curso.mockito.exercicio.anotacoes.injecao_dependencia.Processo.Arquiteto;
@@ -18,19 +21,20 @@ import br.edu.curso.mockito.exercicio.anotacoes.injecao_dependencia.Sistema.Mode
 import br.edu.curso.mockito.exercicio.anotacoes.injecao_dependencia.Sistema.Projeto;
 import br.edu.curso.mockito.exercicio.anotacoes.injecao_dependencia.Sistema.Prototipo;
 
+@RunWith(MockitoJUnitRunner.class)
 public class FabricaSoftwareTest {
 	
-	private Fabrica fabrica;
+	@InjectMocks private Fabrica fabrica;
 	
-	private Analista analistaMock;
-	private Designer designerMock;
-	private Arquiteto arquitetoMock;
-	private Cliente clienteMock;
-	private Programador programadorMock;
+	@Mock private Analista analistaMock;
+	@Mock private Designer designerMock;
+	@Mock private Arquiteto arquitetoMock;
+	@Mock private Cliente clienteMock;
+	@Mock private Programador programadorMock;
 	
 	private Ideia financeiro = Ideia.Financeiro;
 	
-	@Test @Ignore public void fabricarSucesso() {
+	@Test public void fabricarSucesso() {
 		Sistema sistema = this.fabrica.fabricar( financeiro );
 		assertNotNull( sistema );
 		this.checarProcessoFabril();

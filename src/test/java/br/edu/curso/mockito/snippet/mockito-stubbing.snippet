@@ -1,7 +1,10 @@
 @Test public void stubbingMetodos() {
-	List<String> listaMock = mock( List.class );
-	when( listaMock.get(0) ).thenReturn( "first" );
+	List<String> listaMock = Mockito.mock( List.class );
+	Mockito.when( listaMock.get(0) ).thenReturn( "first" );
 	
-	System.out.println( listaMock.get(0) );
-	System.out.println( listaMock.get(999) );
+	String resultado = listaMock.get(0);
+	assertThat( resultado, is("first") );
+	
+	String tentativa = listaMock.get(999);
+	assertNull( tentativa );
 }

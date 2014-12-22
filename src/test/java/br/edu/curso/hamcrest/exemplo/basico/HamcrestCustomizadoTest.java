@@ -6,8 +6,10 @@ import static br.edu.curso.hamcrest.exemplo.basico.PessoaMatchers.hasIdadeFeatur
 import static br.edu.curso.hamcrest.exemplo.basico.PessoaMatchers.hasIdadeUsando_TypeSafeDiagnosingMatcher;
 import static br.edu.curso.hamcrest.exemplo.basico.PessoaMatchers.hasNome;
 import static org.hamcrest.CoreMatchers.both;
+import static org.hamcrest.CoreMatchers.either;
 import static org.junit.Assert.assertThat;
 
+import org.junit.Before;
 import org.junit.Test;
 
 /**
@@ -35,6 +37,8 @@ public class HamcrestCustomizadoTest {
 	@Test public void matchersCombinando() {
 		assertThat(rocha, hasIdadeFeatureMatcher(32));
 		assertThat(rocha, both( hasNome("Rocha") ).and( hasIdade(32) ) );
+		
+		assertThat(rocha, either(hasNome("Rochaa")).or( hasIdade(31) ));
 	}
 	
 	@Test public void matchersCombinadorCustomizado() {

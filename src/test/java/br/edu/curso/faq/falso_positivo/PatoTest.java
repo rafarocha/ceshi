@@ -1,5 +1,7 @@
 package br.edu.curso.faq.falso_positivo;
 
+import static org.junit.Assert.fail;
+
 import org.junit.Test;
 
 /**
@@ -12,6 +14,23 @@ public class PatoTest {
 			Pato pato = new Pato();
 			pato.andar();
 		} catch (IllegalStateException e) {
+			// sucess
+		}
+	}
+	
+	@Test public void andarPataDireita() {
+		Pato pato = new Pato();
+		pato.direita = new Pata();
+		pato.andar();						
+	}
+
+	@Test public void andarApenasPataDireitaTryCatch() {
+		try {
+			Pato pato = new Pato();
+			pato.direita = new Pata();
+			pato.andar();
+			fail("deveria ter as duas patas");
+		} catch (Exception e) {
 			// sucess
 		}
 	}

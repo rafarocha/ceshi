@@ -9,9 +9,9 @@ import javax.faces.component.UIInput;
 import javax.faces.component.html.HtmlInputText;
 import javax.faces.context.FacesContext;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
@@ -23,14 +23,10 @@ import org.powermock.modules.junit4.PowerMockRunner;
 @PrepareForTest(FacesContext.class)
 public class ControllerBeanJSFTest {
 	
-	private ControllerBeanJSF simpleBean;
-	
 	@Mock private FacesContext facesContextMock;
 	@Mock private Application applicationMock;
 	
-	@Before public void before() {
-		this.simpleBean = new ControllerBeanJSF();
-	}
+	@InjectMocks private ControllerBeanJSF simpleBean;
 	
 	@Test public void test() throws Exception {
 		PowerMockito.mockStatic( FacesContext.class );
@@ -54,27 +50,6 @@ public class ControllerBeanJSFTest {
 		FacesContext.getCurrentInstance();
 		
 		assertEquals(expected, value);
-	}
-	
-	class ControllerBeanJSF {
-		
-		private static final String input = UIInput.COMPONENT_TYPE;
-		
-		public String get() {
-			Application app = getApplication();
-			UIInput component = getComponent( app );
-			return component.getValue().toString();
-		}
-		
-		private UIInput getComponent(Application app) {
-			return(UIInput) app.createComponent(input);
-		}
-		
-		private Application getApplication() {
-			FacesContext context = FacesContext.getCurrentInstance();
-			return context.getApplication();
-		}
-		
 	}
 
 }

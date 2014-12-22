@@ -1,5 +1,6 @@
 package br.edu.curso.mockito.exercicio.verificacao.listas;
 
+import static org.mockito.Mockito.inOrder;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
@@ -8,6 +9,7 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.mockito.InOrder;
 
 @SuppressWarnings("unchecked")
 public class ListaTest {
@@ -20,23 +22,31 @@ public class ListaTest {
 		this.lista2Mock = mock(List.class);
 	}
 	
-	@Test @Ignore public void desafio1() {
+	@Test public void desafio1() {
 		// aqui faça as mesmas chamadas feitas na verificação abaixo
 		
-		// aqui insira o InOrder 
+		InOrder inOrder = inOrder( lista1Mock );
 		
-		verify(lista1Mock).add("primeiro");
-		verify(lista1Mock).add("segundo");
+		lista1Mock.add("primeiro");
+		lista1Mock.add("segundo");
+		
+		inOrder.verify(lista1Mock).add("primeiro");
+		inOrder.verify(lista1Mock).add("segundo");
 	}
 	
 	@Test @Ignore public void desafio2() {
 		// aqui faça as mesmas chamadas feitas na verificação abaixo
 		
-		// aqui insira o InOrder
+		InOrder inOrder = inOrder(lista1Mock, lista2Mock);
 		
-		verify(lista1Mock).add("primeiro");
-		verify(lista2Mock).add("segundo");
-		verify(lista1Mock).add("terceiro");
+		// aqui insira o InOrder
+		lista1Mock.add("primeiro");		
+		lista2Mock.add("segundo");		
+		lista1Mock.add("terceiro");		
+		
+		inOrder.verify(lista1Mock).add("primeiro");
+		inOrder.verify(lista2Mock).add("segundo");
+		inOrder.verify(lista1Mock).add("terceiro");
 	}
 
 }

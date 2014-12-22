@@ -4,6 +4,7 @@ import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyInt;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -40,11 +41,20 @@ public class ForcaTest {
 	
 	@Test public void acertoDireto() {
 		when( dicionarioMock.eleger(any(Tema.class)) ).thenReturn("leopardo");
-		when( coletorMock.obter() ).thenReturn( "leopardo" );
+		when( coletorMock.obter() ).thenReturn( "l" );
 		
 		forca.jogar( Tema.animais );
 		
 		verify( desenhistaMock, never() ).desenha( anyInt() );
+	}
+
+	@Test public void acerto6Erros() {
+		when( dicionarioMock.eleger(any(Tema.class)) ).thenReturn("leopardo");
+		when( coletorMock.obter() ).thenReturn( "x", "y", "w" );
+		
+		forca.jogar( Tema.animais );
+		
+		verify( desenhistaMock, times(7) ).desenha( anyInt() );
 	}
 	
 	private Forca montarJogo() {

@@ -86,7 +86,7 @@ public class UsuarioRepositorioTest {
 	
 	private UsuarioRepositorio repositorio;
 	
-	@Test @Ignore public void obterPorId() {		
+	@Test public void obterPorId() {		
 		Usuario usuario = repositorio.obterPorId(4);
 		assertThat(usuario, is( michaelJackson() ));
 	}

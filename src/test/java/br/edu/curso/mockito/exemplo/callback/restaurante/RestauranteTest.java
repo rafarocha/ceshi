@@ -35,23 +35,11 @@ public class RestauranteTest {
 			.when( atendenteMock ).revisa( xEggBacon );
 		
 		Refeicao refeicao = restaurante.solicitar( X_Egg_Bacon );
+		
 		this.checar( X_Egg_Bacon, refeicao );
 		this.checarEmbalagemCopa( refeicao );
 	}
 	
-	@Before public void before() {
-		// mocks
-		this.atendenteMock = mock( Atendente.class );
-		this.cozinheiroMock = mock( Cozinheiro.class );
-		
-		// objetos reais
-		this.restaurante = Restaurante.builder()
-			.cozinheiro( cozinheiroMock )
-			.atendente( atendenteMock )
-			.build();
-		
-		this.xEggBacon = new Refeicao( ItemCardapio.X_Egg_Bacon );		
-	}
 	
 	class AnswerRefeicaoComEmbalagemCopa implements Answer<Refeicao> {
 		public Refeicao answer(InvocationOnMock invocation) throws Throwable {
@@ -64,6 +52,19 @@ public class RestauranteTest {
 		}
 	}
 	
+	@Before public void before() {
+		// mocks
+		this.atendenteMock = mock( Atendente.class );
+		this.cozinheiroMock = mock( Cozinheiro.class );
+		
+		// objetos reais
+		this.restaurante = Restaurante.builder()
+				.cozinheiro( cozinheiroMock )
+				.atendente( atendenteMock )
+				.build();
+		
+		this.xEggBacon = new Refeicao( ItemCardapio.X_Egg_Bacon );		
+	}
 	private void checarEmbalagemCopa(Refeicao refeicao) {
 		assertThat( refeicao.embalagem, is(Embalagem.Copa) );
 		this.checar( X_Egg_Bacon, refeicao );
