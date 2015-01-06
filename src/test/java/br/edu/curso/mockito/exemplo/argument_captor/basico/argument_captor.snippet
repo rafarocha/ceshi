@@ -1,6 +1,0 @@
-ArgumentCaptor<Pessoa> argument 
-		= ArgumentCaptor.forClass( Pessoa.class );
-
-verify( mock ).fazAlgo( argument.capture() );
-
-assertEquals("Oz", argument.getValue().getName() );
